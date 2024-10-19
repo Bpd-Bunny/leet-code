@@ -6,14 +6,14 @@ class Solution:
             m = l + (r-l)//2
             if nums[m]==target:
                 return m
-            # check that left of mid is sorted or not
+           # check that left of mid is sorted or not
             elif nums[l] <= nums[m]:
                 # target is present or not
                 if nums[l]<=target and nums[m]>target :
                     r=m-1
                 else: 
                     l=m+1
-            # else Right of mid is sorted 
+            # else Right of mid is sorted  
             else:
                 # target is present or not
                 if nums[m]<target and nums[r]>=target:
