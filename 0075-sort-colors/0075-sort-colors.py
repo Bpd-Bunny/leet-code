@@ -1,16 +1,17 @@
-from collections import Counter
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
-        dic = Counter(nums)
-        k=0
-        for i in range(len(nums)):
-            if dic[0]!=0:
-                nums[k]=0
-                dic[0]-=1
-            elif dic[1]!=0:
-                nums[k]=1
-                dic[1]-=1
+        low = 0
+        mid = 0
+        high = len(nums)-1
+        while mid <= high:
+            if nums[mid]==0:
+                nums[low],nums[mid] = nums[mid],nums[low]
+                low +=1
+                mid +=1
+            elif nums[mid]==1:
+                mid +=1
             else:
-                nums[k]=2
-                dic[2]-=1
-            k+=1
+                nums[high],nums[mid] = nums[mid],nums[high]
+                high-=1
+                
+                
